@@ -8,12 +8,11 @@
 ##
 ################################################################################
 
-InstallValue(SCSettings,
+BindGlobal("SCSettings",
 rec(
 BreakOnError:=false,
 MailOnError:=false
 ));
-MakeReadWriteGlobal("SCSettings");
 
 SCIntFunc.Version:="%%%VERSION%%%";
 
@@ -70,8 +69,6 @@ fi;
 SCSettings.ComplexCounter:=1;
 SCIntFunc.CheckExternalProgramsAvailability();
 ReadPackage("simpcomp", "lib/prophandler.gd");
-
-MakeReadOnlyGlobal("SCIntFunc");
 
 #load global library
 InstallValue(SCLib,SCIntFunc.SCLibGlobalInit());
